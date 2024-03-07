@@ -22,19 +22,19 @@
       return false;
     }
 
-    // Get the username from the URL
-    var username = getQueryVariable('username');
+    // Get the id from the URL
+    var id = getQueryVariable('id');
 
     // Display greeting message
-    if (username) {
-      document.getElementById('greeting').innerText = 'Hello, ' + username + '! Welcome to Trispace.';
+    if (id) {
+      document.getElementById('greeting').innerText = 'Hello, ' + id + '! Welcome to Trispace.';
     } else {
       document.getElementById('greeting').innerText = 'Hello! Welcome to Trispace.';
     }
 
     // Auto redirection after 3 seconds
     setTimeout(function(){
-      window.location.href = "https://trispace.xyz/displayUserId.html?username=" + username;
+      window.location.href = "https://trispace.xyz/displayUserId.html?id=" + id;
     }, 3000);
   </script>
 </body>
