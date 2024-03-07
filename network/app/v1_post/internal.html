@@ -131,11 +131,11 @@
     const user = JSON.parse(loggedInUser);
     document.body.innerHTML += '<h1>Welcome back, ' + user.name + '!</h1>';
   } else {
-    // Show loader for 3 seconds
-    setTimeout(() => {
+    // Show loader until content is loaded
+    document.addEventListener('DOMContentLoaded', function() {
       document.querySelector('.loader').style.display = 'none';
       document.getElementById('login-form').style.display = 'block';
-    }, 3000);
+    });
   }
 
   // Login/Register form submission
@@ -194,7 +194,7 @@
     document.getElementById('post-id').value = '';
     document.getElementById('post-description').value = '';
     document.getElementById('contact-info').value = '';
-    // Show loader for 1 second
+    // Show loader until content is loaded
     const loader = document.createElement('div');
     loader.classList.add('loader');
     document.body.appendChild(loader);
