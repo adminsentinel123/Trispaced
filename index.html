@@ -130,14 +130,15 @@
   const posts = JSON.parse(localStorage.getItem('posts')) || [];
   const postsContainer = document.getElementById('posts-container');
   posts.forEach(post => {
-    postsContainer.innerHTML += `
-      <div class="post">
-        <h3>User: ${post.user}</h3>
-        <p>ID: ${post.postId}</p>
-        <p>Description: ${post.description}</p>
-        <p>Contact Info: ${post.contactInfo}</p>
-      </div>
+    const postDiv = document.createElement('div');
+    postDiv.classList.add('post');
+    postDiv.innerHTML = `
+      <h3>User: ${post.user}</h3>
+      <p>ID: ${post.postId}</p>
+      <p>Description: ${post.description}</p>
+      <p>Contact Info: ${post.contactInfo}</p>
     `;
+    postsContainer.appendChild(postDiv);
   });
 
   // Add post form submission
@@ -151,14 +152,15 @@
     // Add post to local storage and display
     posts.push(post);
     localStorage.setItem('posts', JSON.stringify(posts));
-    postsContainer.innerHTML += `
-      <div class="post">
-        <h3>User: ${post.user}</h3>
-        <p>ID: ${postId}</p>
-        <p>Description: ${description}</p>
-        <p>Contact Info: ${contactInfo}</p>
-      </div>
+    const postDiv = document.createElement('div');
+    postDiv.classList.add('post');
+    postDiv.innerHTML = `
+      <h3>User: ${post.user}</h3>
+      <p>ID: ${postId}</p>
+      <p>Description: ${description}</p>
+      <p>Contact Info: ${contactInfo}</p>
     `;
+    postsContainer.appendChild(postDiv);
     // Clear input fields
     document.getElementById('post-id').value = '';
     document.getElementById('post-description').value = '';
