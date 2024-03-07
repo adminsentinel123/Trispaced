@@ -5,9 +5,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Website with Login/Register and Posts</title>
 <style>
+  /* Global styles */
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
   /* Styles for the loader */
   .loader {
-    border: 16px solid #f3f3f3;
+    border: 16px solid #fff;
     border-radius: 50%;
     border-top: 16px solid #3498db;
     width: 120px;
@@ -30,11 +39,13 @@
     border: 1px solid #ccc;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #333;
   }
   
   #login-form h2, #post-form h2 {
     text-align: center;
     margin-bottom: 20px;
+    color: #3498db;
   }
   
   #login-form input[type="text"],
@@ -57,6 +68,12 @@
     color: #fff;
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  #login-form input[type="submit"]:hover,
+  #post-form input[type="submit"]:hover {
+    background-color: #2980b9;
   }
   
   /* Styles for posts */
@@ -65,6 +82,18 @@
     border-radius: 5px;
     padding: 10px;
     margin-bottom: 10px;
+    background-color: #444;
+    animation: fadeIn 1s ease;
+  }
+
+  /* Animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>
 </head>
@@ -165,6 +194,13 @@
     document.getElementById('post-id').value = '';
     document.getElementById('post-description').value = '';
     document.getElementById('contact-info').value = '';
+    // Show loader for 1 second
+    const loader = document.createElement('div');
+    loader.classList.add('loader');
+    document.body.appendChild(loader);
+    setTimeout(() => {
+      loader.remove();
+    }, 1000);
   });
 </script>
 </body>
